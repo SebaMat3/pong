@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://euiwvn07vrfp"]
+
+[ext_resource type="PackedScene" uid="uid://dow44olk1dfrb" path="res://Player.tscn" id="1_57x1u"]
+[ext_resource type="Script" path="res://Player.gd" id="2_t0iwi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fexkk"]
+size = Vector2(1920, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvell"]
+size = Vector2(50, 1080)
+
+[node name="Level" type="Node2D"]
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+
+[node name="RightWallCol" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(960, -25)
+shape = SubResource("RectangleShape2D_fexkk")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="LeftWallCol" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(961, 1105)
+shape = SubResource("RectangleShape2D_fexkk")
+
+[node name="OponentArc" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OponentArc"]
+position = Vector2(-25, 540)
+shape = SubResource("RectangleShape2D_yvell")
+
+[node name="PlayerArc" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArc"]
+position = Vector2(1945, 540)
+shape = SubResource("RectangleShape2D_yvell")
+
+[node name="Player" parent="." instance=ExtResource("1_57x1u")]
+script = ExtResource("2_t0iwi")
