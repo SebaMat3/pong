@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://euiwvn07vrfp"]
+[gd_scene load_steps=7 format=3 uid="uid://euiwvn07vrfp"]
 
 [ext_resource type="PackedScene" uid="uid://dow44olk1dfrb" path="res://Player.tscn" id="1_57x1u"]
 [ext_resource type="Script" path="res://Player.gd" id="2_t0iwi"]
+[ext_resource type="Script" path="res://Oponent.gd" id="3_diilk"]
 [ext_resource type="PackedScene" uid="uid://ct3201drt1ce2" path="res://Ball.tscn" id="3_tsef7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fexkk"]
@@ -38,6 +39,10 @@ shape = SubResource("RectangleShape2D_yvell")
 
 [node name="Player" parent="." instance=ExtResource("1_57x1u")]
 script = ExtResource("2_t0iwi")
+
+[node name="Oponent" parent="." instance=ExtResource("1_57x1u")]
+position = Vector2(1845, 460)
+script = ExtResource("3_diilk")
 
 [node name="Ball" parent="." instance=ExtResource("3_tsef7")]
 position = Vector2(982, 494)
