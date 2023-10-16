@@ -10,7 +10,9 @@ var is_moving = false
 func _ready():
 	#godot function that enerates new seed for randi() -> IMPORTANT
 	randomize()
+	reset_ball()
 	
+func reset_ball():
 	speed = 600
 	#horizontal direction chosen randomly
 	direction.x = [-1,1][randi() % 2]

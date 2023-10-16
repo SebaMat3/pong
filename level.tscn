@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://euiwvn07vrfp"]
+[gd_scene load_steps=8 format=3 uid="uid://euiwvn07vrfp"]
 
 [ext_resource type="PackedScene" uid="uid://dow44olk1dfrb" path="res://Player.tscn" id="1_57x1u"]
+[ext_resource type="Script" path="res://level.gd" id="1_w1vgo"]
 [ext_resource type="Script" path="res://Player.gd" id="2_t0iwi"]
 [ext_resource type="Script" path="res://Oponent.gd" id="3_diilk"]
 [ext_resource type="PackedScene" uid="uid://ct3201drt1ce2" path="res://Ball.tscn" id="3_tsef7"]
@@ -12,6 +13,7 @@ size = Vector2(1920, 50)
 size = Vector2(50, 1080)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_w1vgo")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 
@@ -46,3 +48,6 @@ script = ExtResource("3_diilk")
 
 [node name="Ball" parent="." instance=ExtResource("3_tsef7")]
 position = Vector2(982, 494)
+
+[connection signal="body_entered" from="OponentArc" to="." method="_on_oponent_arc_body_entered"]
+[connection signal="body_entered" from="PlayerArc" to="." method="_on_player_arc_body_entered"]
