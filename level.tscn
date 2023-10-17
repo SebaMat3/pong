@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://euiwvn07vrfp"]
+[gd_scene load_steps=9 format=3 uid="uid://euiwvn07vrfp"]
 
 [ext_resource type="PackedScene" uid="uid://dow44olk1dfrb" path="res://Player.tscn" id="1_57x1u"]
 [ext_resource type="Script" path="res://level.gd" id="1_w1vgo"]
 [ext_resource type="Script" path="res://Player.gd" id="2_t0iwi"]
 [ext_resource type="Script" path="res://Oponent.gd" id="3_diilk"]
 [ext_resource type="PackedScene" uid="uid://ct3201drt1ce2" path="res://Ball.tscn" id="3_tsef7"]
+[ext_resource type="FontFile" uid="uid://qgeohpuyfeeo" path="res://PoetsenOne-Regular.ttf" id="6_52lvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fexkk"]
 size = Vector2(1920, 50)
@@ -30,13 +31,13 @@ shape = SubResource("RectangleShape2D_fexkk")
 [node name="OponentArc" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OponentArc"]
-position = Vector2(-25, 540)
+position = Vector2(1945, 540)
 shape = SubResource("RectangleShape2D_yvell")
 
 [node name="PlayerArc" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArc"]
-position = Vector2(1945, 540)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerArc"]
+position = Vector2(-25, 540)
 shape = SubResource("RectangleShape2D_yvell")
 
 [node name="Player" parent="." instance=ExtResource("1_57x1u")]
@@ -48,6 +49,29 @@ script = ExtResource("3_diilk")
 
 [node name="Ball" parent="." instance=ExtResource("3_tsef7")]
 position = Vector2(982, 494)
+
+[node name="PlayerCounter" type="Label" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_left = -200.0
+offset_right = 1720.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0.686275, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_52lvh")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OponentCounter" type="Label" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_left = 165.0
+offset_right = 2085.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0.686275, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_52lvh")
+theme_override_font_sizes/font_size = 32
+text = "hv"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="OponentArc" to="." method="_on_oponent_arc_body_entered"]
 [connection signal="body_entered" from="PlayerArc" to="." method="_on_player_arc_body_entered"]
