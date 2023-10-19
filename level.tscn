@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Player.gd" id="2_t0iwi"]
 [ext_resource type="Script" path="res://Oponent.gd" id="3_diilk"]
 [ext_resource type="PackedScene" uid="uid://ct3201drt1ce2" path="res://Ball.tscn" id="3_tsef7"]
-[ext_resource type="FontFile" uid="uid://qgeohpuyfeeo" path="res://PoetsenOne-Regular.ttf" id="6_52lvh"]
+[ext_resource type="FontFile" uid="uid://qgeohpuyfeeo" path="res://Assets/Fonts/PoetsenOne-Regular.ttf" id="6_ogmx6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fexkk"]
 size = Vector2(1920, 50)
@@ -56,7 +56,7 @@ offset_left = -200.0
 offset_right = 1720.0
 offset_bottom = 1080.0
 theme_override_colors/font_color = Color(0.686275, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_52lvh")
+theme_override_fonts/font = ExtResource("6_ogmx6")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -67,11 +67,14 @@ offset_left = 165.0
 offset_right = 2085.0
 offset_bottom = 1080.0
 theme_override_colors/font_color = Color(0.686275, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_52lvh")
+theme_override_fonts/font = ExtResource("6_ogmx6")
 theme_override_font_sizes/font_size = 32
 text = "hv"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RestartTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="OponentArc" to="." method="_on_oponent_arc_body_entered"]
 [connection signal="body_entered" from="PlayerArc" to="." method="_on_player_arc_body_entered"]
+[connection signal="timeout" from="RestartTimer" to="Ball" method="_on_restart_timer_timeout"]
